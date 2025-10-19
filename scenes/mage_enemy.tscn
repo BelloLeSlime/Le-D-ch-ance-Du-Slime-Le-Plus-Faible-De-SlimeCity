@@ -16,7 +16,7 @@ script = ExtResource("1_kuai2")
 offset_left = -40.0
 offset_top = -40.0
 scale = Vector2(2, 2)
-color = Color(1, 0, 0, 1)
+color = Color(1, 1, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

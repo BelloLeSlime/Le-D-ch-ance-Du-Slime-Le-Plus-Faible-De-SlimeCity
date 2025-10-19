@@ -11,7 +11,7 @@ var protected = false
 var can_be_damaged = true
 
 func _ready():
-	player = get_tree().get_root().get_node("Main/Bello")
+	player = get_tree().get_root().get_node("Main/Level1/Bello")
 
 func _physics_process(_delta):
 	for body in $Attack.get_overlapping_bodies():
