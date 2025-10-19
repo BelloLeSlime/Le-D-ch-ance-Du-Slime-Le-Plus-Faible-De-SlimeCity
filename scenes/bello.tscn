@@ -39,19 +39,19 @@ autostart = true
 wait_time = 5.0
 one_shot = true
 
+[node name="HealCooldown" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 
 [node name="CameraShake" type="Timer" parent="."]
-
-[node name="HealCooldown" type="Timer" parent="."]
-wait_time = 10.0
-one_shot = true
 
 [connection signal="timeout" from="DashSpeedCooldown" to="." method="_on_dash_speed_cooldown_timeout"]
 [connection signal="timeout" from="DashRecoverCooldown" to="." method="_on_dash_recover_cooldown_timeout"]
 [connection signal="timeout" from="MeleeCooldown" to="." method="_on_melee_cooldown_timeout"]
 [connection signal="timeout" from="ArrowCooldown" to="." method="_on_arrow_cooldown_timeout"]
 [connection signal="timeout" from="FreezeCooldown" to="." method="_on_freeze_cooldown_timeout"]
-[connection signal="timeout" from="CameraShake" to="." method="_on_camera_shake_timeout"]
 [connection signal="timeout" from="HealCooldown" to="." method="_on_heal_cooldown_timeout"]
+[connection signal="timeout" from="CameraShake" to="." method="_on_camera_shake_timeout"]

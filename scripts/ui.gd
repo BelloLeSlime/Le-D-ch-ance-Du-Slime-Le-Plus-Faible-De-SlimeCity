@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-func _process(delta):
+func _process(_delta):
 	$DashLeft.text = "Dashes : " + str(Globals.dash_left)
 	if Globals.can_freeze:
 		$FreezeCooldown.text = "Freeze !"

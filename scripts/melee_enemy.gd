@@ -1,14 +1,19 @@
 extends CharacterBody2D
 
+signal destroy
+
 var speed = 350
 var player: CharacterBody2D = null
 var can_attack = true
 
+var protected = false
+
+var can_be_damaged = true
+
 func _ready():
 	player = get_tree().get_root().get_node("Main/Bello")
 
-func _physics_process(delta):
-	
+func _physics_process(_delta):
 	for body in $Attack.get_overlapping_bodies():
 		if body.name == "Bello" and can_attack and $Freeze.time_left == 0:
 			can_attack = false
@@ -27,3 +32,16 @@ func _physics_process(delta):
 
 func _on_attack_cooldown_timeout():
 	can_attack = true
+
+func damage():
+	if can_be_damaged:
+		$DamageCooldown.start()
+		can_be_damaged = false
+		if protected:
+			protected = false
+			emit_signal("destroy")
+		else:
+			queue_free()
+
+func _on_damage_cooldown_timeout():
+	can_be_damaged = true
