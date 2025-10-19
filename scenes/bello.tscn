@@ -6,7 +6,7 @@
 
 [node name="Bello" type="CharacterBody2D"]
 scale = Vector2(2, 2)
-collision_mask = 6
+collision_mask = 22
 script = ExtResource("1_pb4cl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -17,6 +17,7 @@ offset_left = -10.0
 offset_top = -10.0
 offset_right = 10.0
 offset_bottom = 10.0
+color = Color(0, 1, 1, 1)
 
 [node name="DashSpeedCooldown" type="Timer" parent="."]
 process_callback = 0

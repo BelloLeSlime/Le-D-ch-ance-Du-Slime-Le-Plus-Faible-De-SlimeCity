@@ -9,8 +9,9 @@ size = Vector2(80, 80)
 size = Vector2(276, 276)
 
 [node name="TankEnemy" type="CharacterBody2D"]
+z_index = 2
 collision_layer = 2
-collision_mask = 9
+collision_mask = 25
 script = ExtResource("1_oyjof")
 
 [node name="ColorRect" type="ColorRect" parent="."]

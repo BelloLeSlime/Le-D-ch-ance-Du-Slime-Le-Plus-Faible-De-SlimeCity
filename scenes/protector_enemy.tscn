@@ -8,9 +8,10 @@ size = Vector2(80, 80)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33euu"]
 
 [node name="ProtectorEnemy" type="CharacterBody2D"]
+z_index = 2
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
-collision_mask = 9
+collision_mask = 25
 script = ExtResource("1_mu5ik")
 
 [node name="ColorRect" type="ColorRect" parent="."]
