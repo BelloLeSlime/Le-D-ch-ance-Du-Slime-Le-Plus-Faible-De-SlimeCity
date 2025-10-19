@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://4khaeqq6n2tp"]
+
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_a0hbg"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_a0hbg")
+
+[node name="DashLeft" type="Label" parent="."]
+offset_left = 149.0
+offset_top = 26.0
+offset_right = 227.0
+offset_bottom = 53.0
+text = "Dashes : 1"
+
+[node name="FreezeCooldown" type="Label" parent="."]
+offset_left = 341.0
+offset_top = 26.0
+offset_right = 433.0
+offset_bottom = 49.0
+text = "Freeze in : 4"
+
+[node name="ArrowLeft" type="Label" parent="."]
+offset_left = 244.0
+offset_top = 26.0
+offset_right = 321.0
+offset_bottom = 49.0
+text = "Arrows : 3"
+
+[node name="Health" type="Label" parent="."]
+offset_left = 42.0
+offset_top = 26.0
+offset_right = 134.0
+offset_bottom = 49.0
+text = "Health : 100"
+
+[node name="HealCooldown" type="Label" parent="."]
+offset_left = 1061.0
+offset_top = 26.0
+offset_right = 1137.0
+offset_bottom = 49.0
+text = "Heal in : 9"

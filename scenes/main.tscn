@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3tneckx2oiwp"]
+
+[ext_resource type="PackedScene" uid="uid://chvmn20p3r0jd" path="res://scenes/bello.tscn" id="1_mliks"]
+[ext_resource type="PackedScene" uid="uid://4khaeqq6n2tp" path="res://scenes/ui.tscn" id="1_muctc"]
+[ext_resource type="PackedScene" uid="uid://b6l0idlnhjjl4" path="res://scenes/melee_enemy.tscn" id="3_3e0dt"]
+[ext_resource type="PackedScene" uid="uid://dd3xwghn3t50n" path="res://scenes/ranger_enemy.tscn" id="3_criyj"]
+[ext_resource type="PackedScene" uid="uid://d1wepw4rdkeho" path="res://scenes/mage_enemy.tscn" id="3_o2gxg"]
+[ext_resource type="PackedScene" uid="uid://uuy4trbyh632" path="res://scenes/tank_enemy.tscn" id="3_ybvvq"]
+
+[node name="Main" type="Node2D"]
+
+[node name="UI" parent="." instance=ExtResource("1_muctc")]
+
+[node name="Bello" parent="." instance=ExtResource("1_mliks")]
+
+[node name="TankEnemy" parent="." instance=ExtResource("3_ybvvq")]
+position = Vector2(1184, 406)
+
+[node name="MageEnemy" parent="." instance=ExtResource("3_o2gxg")]
+position = Vector2(986, 581)
+
+[node name="RangerEnemy" parent="." instance=ExtResource("3_criyj")]
+position = Vector2(835, 472)
+
+[node name="MeleeEnemy" parent="." instance=ExtResource("3_3e0dt")]
+position = Vector2(670, 473)
