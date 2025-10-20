@@ -1,7 +1,5 @@
 extends TileMap
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	var filled_tiles := get_used_cells(0)
 	for filled_tile: Vector2i in filled_tiles:

@@ -6,13 +6,13 @@
 size = Vector2(80, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehx1r"]
-size = Vector2(276, 276)
+size = Vector2(118, 114)
 
 [node name="MeleeEnemy" type="CharacterBody2D"]
 z_index = 2
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
-collision_mask = 25
+collision_mask = 27
 script = ExtResource("1_ms43n")
 
 [node name="ColorRect" type="ColorRect" parent="."]

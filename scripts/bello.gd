@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed = 400
 var input_vector
-var dash_left = 2
+var dash_left = 3
 var melee_preload = preload("res://scenes/melee.tscn")
 var can_melee = true
 var arrow_preload = preload("res://scenes/arrow.tscn")
@@ -12,8 +12,8 @@ var arrow_left = 3
 
 var can_heal = true
 
-var health = 300
-var last_health = 300
+var health = 500
+var last_health = 500
 
 var shake = false
 var shake_duration = 0.5
@@ -44,7 +44,7 @@ func _physics_process(_delta):
 	input_vector = input_vector.normalized()
 	
 	if Input.is_action_just_pressed("shift") and dash_left > 0:
-		speed = 1000
+		speed = 1500
 		dash_left -= 1
 		$DashSpeedCooldown.start()
 	
@@ -80,9 +80,9 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("a") and can_heal:
 		can_heal = false
 		$HealCooldown.start()
-		health += 150
-		if health >= 300:
-			health = 300
+		health += 250
+		if health >= 500:
+			health = 500
 	
 	Globals.dash_left = dash_left
 	Globals.freeze_cooldown = int($FreezeCooldown.time_left)

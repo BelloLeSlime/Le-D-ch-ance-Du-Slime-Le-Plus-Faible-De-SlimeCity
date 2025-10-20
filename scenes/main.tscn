@@ -23,6 +23,13 @@ offset_bottom = 433.0
 theme_override_font_sizes/font_size = 40
 text = "Quit"
 
+[node name="Boss" type="Button" parent="Menu"]
+offset_left = 835.0
+offset_top = 400.0
+offset_right = 879.0
+offset_bottom = 431.0
+text = "Boss"
+
 [node name="Title" type="Label" parent="Menu"]
 offset_left = 235.0
 offset_top = 73.0
@@ -34,3 +41,4 @@ text = "LA DECHEANCE DU SLIME
 
 [connection signal="pressed" from="Menu/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Menu/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Menu/Boss" to="." method="_on_boss_pressed"]
