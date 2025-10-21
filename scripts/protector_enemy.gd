@@ -57,7 +57,7 @@ func _physics_process(_delta):
 			if body.name == "Bello":
 				mode = "active"
 	
-		move_and_slide()
+	move_and_slide()
 
 func damage():
 	if can_be_damaged:

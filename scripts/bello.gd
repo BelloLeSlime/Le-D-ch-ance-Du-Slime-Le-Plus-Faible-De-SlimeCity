@@ -71,7 +71,8 @@ func _physics_process(_delta):
 		var mouse_pos = get_global_mouse_position()
 		var dir = (mouse_pos - global_position).normalized()
 		var arrow = arrow_preload.instantiate()
-		add_child(arrow)
+		get_tree().current_scene.add_child(arrow)
+		arrow.global_position = global_position
 		arrow.dir = dir
 		arrow.rotation = dir.angle()
 		$ArrowCooldown.start()
@@ -79,7 +80,8 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("e") and can_freeze:
 		can_freeze = false
 		var freeze = freeze_preload.instantiate()
-		add_child(freeze)
+		get_tree().current_scene.add_child(freeze)
+		freeze.global_position = global_position
 		
 		$FreezeCooldown.start()
 	

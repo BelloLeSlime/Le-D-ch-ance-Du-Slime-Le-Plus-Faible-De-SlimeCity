@@ -22,11 +22,18 @@ wait_time = 0.2
 one_shot = true
 autostart = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Normal" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(31.782982, -1.2664282)
+position = Vector2(31.78298, -2.9999986)
 rotation = 0.7362341
-scale = Vector2(2.007682, 2.1985576)
+scale = Vector2(2.1, 2.1)
+texture = ExtResource("2_gfgjl")
+
+[node name="Reverse" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(31.78298, 2.999999)
+rotation = 2.456348
+scale = Vector2(-2.1, 2.1)
 texture = ExtResource("2_gfgjl")
 
 [connection signal="timeout" from="DisapeerCooldown" to="." method="_on_disapeer_cooldown_timeout"]

@@ -16,6 +16,11 @@ func setup(direction: Vector2, reverse: bool = false):
 	dir_angle = direction.angle()
 	direction_sign = -1 if reverse else 1
 	
+	if reverse:
+		$Normal.visible = false
+	else:
+		$Reverse.visible = false
+	
 	start_angle = dir_angle - (angle_range / 2) * direction_sign
 	rotation = start_angle
 	position = direction.normalized() * distance
