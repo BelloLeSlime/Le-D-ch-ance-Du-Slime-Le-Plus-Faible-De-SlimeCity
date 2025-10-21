@@ -6,6 +6,7 @@
 size = Vector2(43, 6)
 
 [node name="EnemyArrow" type="Area2D"]
+scale = Vector2(2, 2)
 collision_layer = 4
 script = ExtResource("1_eqhfn")
 

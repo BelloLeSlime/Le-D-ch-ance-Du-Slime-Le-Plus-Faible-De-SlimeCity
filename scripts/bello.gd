@@ -19,6 +19,11 @@ var shake = false
 var shake_duration = 0.5
 var shake_strenght = 10.0
 
+var direction = "down"
+var moving = "idle"
+var sword = true
+var animation = "idle_down_sword"
+
 func _physics_process(_delta):
 	
 	if health <= 0:
@@ -44,19 +49,20 @@ func _physics_process(_delta):
 	input_vector = input_vector.normalized()
 	
 	if Input.is_action_just_pressed("shift") and dash_left > 0:
-		speed = 1500
+		speed = 1200
 		dash_left -= 1
 		$DashSpeedCooldown.start()
 	
 	if Input.is_action_just_pressed("left_click") and can_melee:
 		can_melee = false
+		sword = false
 		var mouse_pos = get_global_mouse_position()
 		var dir = (mouse_pos - global_position).normalized()
 		var melee = melee_preload.instantiate()
 		add_child(melee)
-		
-		melee.global_position = global_position + dir * 50
-		melee.rotation = dir.angle()
+		melee.global_position = global_position
+		var random_reverse = randf() < 0.5
+		melee.setup(dir,random_reverse)
 		
 		$MeleeCooldown.start()
 	
@@ -96,6 +102,33 @@ func _physics_process(_delta):
 	move_and_slide()
 	
 	last_health = health
+	
+	if input_vector.y !=0:
+		if speed == 400:
+			moving = "walk"
+		else:
+			moving = "dash"
+		if input_vector.y > 0:
+			direction = "down"
+		else:
+			direction = "up"
+	elif input_vector.x != 0:
+		if speed == 400:
+			moving = "walk"
+		else:
+			moving = "dash"
+		if input_vector.x > 0:
+			direction = "right"
+		else:
+			direction = "left"
+	else:
+		moving = "idle"
+	if sword:
+		animation = moving + "_" + direction + "_" + "sword"
+	else:
+		animation = moving + "_" + direction
+	
+	$AnimatedSprite2D.play(animation)
 
 func _on_dash_speed_cooldown_timeout():
 	speed = 400
@@ -108,6 +141,7 @@ func _on_dash_recover_cooldown_timeout():
 
 func _on_melee_cooldown_timeout():
 	can_melee = true
+	sword = true
 
 func _on_arrow_cooldown_timeout():
 	arrow_left += 1
