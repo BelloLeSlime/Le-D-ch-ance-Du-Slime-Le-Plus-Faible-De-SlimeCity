@@ -6,7 +6,7 @@
 size = Vector2(80, 80)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xqeis"]
-radius = 2092.1873
+radius = 1005.6023
 
 [node name="RangerEnemy" type="CharacterBody2D"]
 z_index = 2

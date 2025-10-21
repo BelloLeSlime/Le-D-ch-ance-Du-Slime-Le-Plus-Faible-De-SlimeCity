@@ -9,7 +9,7 @@ size = Vector2(80, 80)
 size = Vector2(118, 114)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tq73k"]
-radius = 2092.1873
+radius = 1011.36145
 
 [node name="MeleeEnemy" type="CharacterBody2D"]
 z_index = 2

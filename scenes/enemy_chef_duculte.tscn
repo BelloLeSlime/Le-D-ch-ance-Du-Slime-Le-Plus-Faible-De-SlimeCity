@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca363730kapfa"]
+
+[ext_resource type="Script" uid="uid://bp62vjmc7j1w3" path="res://scripts/enemy_chef_duculte.gd" id="1_fntyt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qccsw"]
+size = Vector2(40, 40)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fntyt"]
+radius = 56.396416
+
+[node name="Enemy Chef Duculte" type="CharacterBody2D"]
+scale = Vector2(3, 3)
+collision_layer = 2
+collision_mask = 25
+script = ExtResource("1_fntyt")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qccsw")
+
+[node name="TornadoAttack" type="Area2D" parent="."]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TornadoAttack"]
+shape = SubResource("CircleShape2D_fntyt")

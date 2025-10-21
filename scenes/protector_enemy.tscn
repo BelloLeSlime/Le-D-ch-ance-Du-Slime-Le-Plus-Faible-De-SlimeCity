@@ -8,7 +8,7 @@ size = Vector2(80, 80)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33euu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uvu0f"]
-radius = 2092.1873
+radius = 1222.0981
 
 [node name="ProtectorEnemy" type="CharacterBody2D"]
 z_index = 2

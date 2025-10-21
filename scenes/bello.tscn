@@ -360,7 +360,7 @@ zoom = Vector2(0.9, 0.9)
 position_smoothing_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="Camera2D"]
-z_index = -2
+z_index = -5
 offset_left = -628.0
 offset_top = -417.0
 offset_right = 631.0

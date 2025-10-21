@@ -6,7 +6,7 @@
 size = Vector2(80, 80)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m1uq0"]
-radius = 2092.1873
+radius = 885.44226
 
 [node name="MageEnemy" type="CharacterBody2D"]
 z_index = 2
