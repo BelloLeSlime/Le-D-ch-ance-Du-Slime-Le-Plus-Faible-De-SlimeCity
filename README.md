@@ -36,5 +36,5 @@ Créateurs :
 
 -BelloLeSlime (moi) : code, musiques, bruitages
 
--Baldéos : graphismes
+-Baldéos : graphismes de fou
 
