@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://bthv7c1mjo5o8"]
 
-[ext_resource type="Script" path="res://scripts/melee.gd" id="1_j1d1v"]
+[ext_resource type="Script" uid="uid://106b70f14po3" path="res://scripts/melee.gd" id="1_j1d1v"]
 [ext_resource type="Texture2D" uid="uid://c4r0bnopxcfn7" path="res://assets/textures/sword.png" id="2_gfgjl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_83eki"]
-size = Vector2(51, 14)
+size = Vector2(62, 14)
 
 [node name="Melee" type="Node2D"]
 script = ExtResource("1_j1d1v")
@@ -14,7 +14,7 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(15.5, 0)
+position = Vector2(32, 0)
 shape = SubResource("RectangleShape2D_83eki")
 
 [node name="DisapeerCooldown" type="Timer" parent="."]
@@ -24,9 +24,9 @@ autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(14.9785, -1.66893e-05)
-rotation = 0.785397
-scale = Vector2(2.32392, 2.32392)
+position = Vector2(31.782982, -1.2664282)
+rotation = 0.7362341
+scale = Vector2(2.007682, 2.1985576)
 texture = ExtResource("2_gfgjl")
 
 [connection signal="timeout" from="DisapeerCooldown" to="." method="_on_disapeer_cooldown_timeout"]

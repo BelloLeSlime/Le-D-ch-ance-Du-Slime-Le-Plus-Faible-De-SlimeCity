@@ -20,9 +20,9 @@ var shake_duration = 0.5
 var shake_strenght = 10.0
 
 var direction = "down"
-var moving = "idle"
+var moving = "walk"
 var sword = true
-var animation = "idle_down_sword"
+var animation = "walk_down_sword"
 
 func _physics_process(_delta):
 	
@@ -104,25 +104,21 @@ func _physics_process(_delta):
 	last_health = health
 	
 	if input_vector.y !=0:
-		if speed == 400:
-			moving = "walk"
-		else:
-			moving = "dash"
 		if input_vector.y > 0:
 			direction = "down"
 		else:
 			direction = "up"
 	elif input_vector.x != 0:
-		if speed == 400:
-			moving = "walk"
-		else:
-			moving = "dash"
 		if input_vector.x > 0:
 			direction = "right"
 		else:
 			direction = "left"
+
+	if speed == 400:
+		moving = "walk"
 	else:
-		moving = "idle"
+		moving = "dash"
+
 	if sword:
 		animation = moving + "_" + direction + "_" + "sword"
 	else:

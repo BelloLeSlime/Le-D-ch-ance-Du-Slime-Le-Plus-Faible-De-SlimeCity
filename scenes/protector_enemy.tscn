@@ -40,7 +40,7 @@ shape = SubResource("RectangleShape2D_33euu")
 wait_time = 3.0
 
 [node name="DamageCooldown" type="Timer" parent="."]
-wait_time = 0.6
+wait_time = 0.2
 
 [connection signal="timeout" from="ProtectCooldown" to="." method="_on_protect_cooldown_timeout"]
 [connection signal="timeout" from="DamageCooldown" to="." method="_on_damage_cooldown_timeout"]

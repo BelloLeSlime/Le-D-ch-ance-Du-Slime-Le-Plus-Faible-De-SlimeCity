@@ -29,7 +29,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="DamageCooldown" type="Timer" parent="."]
-wait_time = 0.6
+wait_time = 0.2
 
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="DamageCooldown" to="." method="_on_damage_cooldown_timeout"]
