@@ -2,7 +2,7 @@ extends Node2D
 
 @export var lifetime := 0.2
 @export var angle_range := deg_to_rad(80) # 10° de chaque côté
-@export var distance := 20.0
+@export var distance := 10.0
 
 var start_angle := 0.0
 var elapsed := 0.0

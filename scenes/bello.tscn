@@ -78,13 +78,13 @@ region = Rect2(1, 65, 30, 30)
 atlas = ExtResource("2_320mq")
 region = Rect2(65, 65, 30, 30)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckvsg"]
+atlas = ExtResource("2_320mq")
+region = Rect2(1, 1, 30, 30)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_lem5j"]
 atlas = ExtResource("2_320mq")
-region = Rect2(1, 33, 30, 30)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vtdnt"]
-atlas = ExtResource("2_320mq")
-region = Rect2(65, 33, 30, 30)
+region = Rect2(65, 1, 30, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wiwk2"]
 atlas = ExtResource("2_320mq")
@@ -237,10 +237,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lem5j")
+"texture": SubResource("AtlasTexture_ckvsg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vtdnt")
+"texture": SubResource("AtlasTexture_lem5j")
 }],
 "loop": true,
 "name": &"walk_down_sword",
@@ -315,7 +315,7 @@ animations = [{
 
 [node name="Bello" type="CharacterBody2D"]
 z_index = 3
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 collision_mask = 22
 script = ExtResource("1_pb4cl")
 
@@ -327,8 +327,6 @@ shape = SubResource("RectangleShape2D_y53qs")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_pua45")
 animation = &"walk_down_sword"
-frame = 1
-frame_progress = 0.3279711
 
 [node name="DashSpeedCooldown" type="Timer" parent="."]
 process_callback = 0

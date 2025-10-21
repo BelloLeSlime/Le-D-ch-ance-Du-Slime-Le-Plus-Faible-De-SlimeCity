@@ -9,6 +9,8 @@ func _physics_process(delta):
 		if "Enemy" in body.name:
 			body.damage()
 			queue_free()
+		if body.name == "TileMap":
+			queue_free()
 	
 	for area in get_overlapping_areas():
 		if "EnemyArrow" in area.name:

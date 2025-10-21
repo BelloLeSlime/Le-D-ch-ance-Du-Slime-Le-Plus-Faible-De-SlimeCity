@@ -31,7 +31,7 @@ func _physics_process(_delta):
 	
 	if last_health > health:
 		shake = true
-		shake_duration = 0.5
+		shake_duration = 0.25
 		shake_strenght = 10.0
 		$CameraShake.wait_time = shake_duration
 		$CameraShake.start()
@@ -105,16 +105,16 @@ func _physics_process(_delta):
 	
 	last_health = health
 	
-	if input_vector.y !=0:
-		if input_vector.y > 0:
+	if input_vector.y < 0:
+		direction = "up"
+	else:
+		if input_vector.x == 0 and input_vector.y > 0:
 			direction = "down"
 		else:
-			direction = "up"
-	elif input_vector.x != 0:
-		if input_vector.x > 0:
-			direction = "right"
-		else:
-			direction = "left"
+			if input_vector.x > 0:
+				direction = "right"
+			elif input_vector.x < 0:
+				direction = "left"
 
 	if speed == 400:
 		moving = "walk"

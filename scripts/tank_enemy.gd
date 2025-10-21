@@ -3,7 +3,7 @@ extends CharacterBody2D
 signal destroy
 
 var health = 2
-var speed = 150
+var speed = 250
 var player: CharacterBody2D = null
 var can_attack = true
 

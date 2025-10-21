@@ -10,7 +10,7 @@ size = Vector2(43, 6)
 z_index = 1
 scale = Vector2(2, 2)
 collision_layer = 8
-collision_mask = 2
+collision_mask = 34
 script = ExtResource("1_uehee")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

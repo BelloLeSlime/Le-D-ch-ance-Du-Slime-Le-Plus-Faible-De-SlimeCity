@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c26mspa0nornw"]
+[gd_scene load_steps=3 format=3 uid="uid://c26mspa0nornw"]
 
-[ext_resource type="Script" path="res://scripts/main.gd" id="1_w4c5k"]
+[ext_resource type="Script" uid="uid://bb4wp8mfskejm" path="res://scripts/main.gd" id="1_w4c5k"]
+[ext_resource type="FontFile" uid="uid://yfhtv0kkh6u0" path="res://assets/fonts/determination.ttf" id="2_0wfyh"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_w4c5k")
@@ -12,6 +13,7 @@ offset_left = 571.0
 offset_top = 286.0
 offset_right = 659.0
 offset_bottom = 349.0
+theme_override_fonts/font = ExtResource("2_0wfyh")
 theme_override_font_sizes/font_size = 40
 text = "Play"
 
@@ -20,6 +22,7 @@ offset_left = 571.0
 offset_top = 370.0
 offset_right = 662.0
 offset_bottom = 433.0
+theme_override_fonts/font = ExtResource("2_0wfyh")
 theme_override_font_sizes/font_size = 40
 text = "Quit"
 
@@ -28,16 +31,19 @@ offset_left = 835.0
 offset_top = 400.0
 offset_right = 879.0
 offset_bottom = 431.0
+theme_override_fonts/font = ExtResource("2_0wfyh")
 text = "Boss"
 
 [node name="Title" type="Label" parent="Menu"]
 offset_left = 235.0
 offset_top = 73.0
-offset_right = 1536.0
+offset_right = 983.0
 offset_bottom = 214.0
+theme_override_fonts/font = ExtResource("2_0wfyh")
 theme_override_font_sizes/font_size = 50
 text = "LA DECHEANCE DU SLIME
- LE PLUS FAIBLE DE SLIMECITY"
+LE PLUS FAIBLE DE SLIMECITY"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="Menu/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Menu/Quit" to="." method="_on_quit_pressed"]
