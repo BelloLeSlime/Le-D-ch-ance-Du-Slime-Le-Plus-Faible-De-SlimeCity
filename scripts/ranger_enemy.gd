@@ -10,6 +10,8 @@ var arrow_preload = preload("res://scenes/enemy_arrow.tscn")
 var protected = false
 var can_be_damaged = true
 
+var mode = "passive"
+
 func _ready():
 	player = get_tree().get_root().get_node("Main/Level1/Bello")
 
@@ -17,18 +19,23 @@ func _physics_process(_delta):
 	
 	var dir = (player.global_position - global_position).normalized()
 	
-	var distance = global_position.distance_to(player.global_position)
-	if distance > 300 and $Freeze.time_left == 0:
-		velocity = dir * speed
-	else:
-		velocity = Vector2.ZERO
-		if can_attack and $Freeze.time_left == 0:
-			can_attack = false
-			var arrow = arrow_preload.instantiate()
-			add_child(arrow)
-			arrow.dir = dir
-			arrow.rotation = dir.angle()
-			$AttackCooldown.start()
+	if mode == "active":
+		var distance = global_position.distance_to(player.global_position)
+		if distance > 300 and $Freeze.time_left == 0:
+			velocity = dir * speed
+		else:
+			velocity = Vector2.ZERO
+			if can_attack and $Freeze.time_left == 0:
+				can_attack = false
+				var arrow = arrow_preload.instantiate()
+				add_child(arrow)
+				arrow.dir = dir
+				arrow.rotation = dir.angle()
+				$AttackCooldown.start()
+	elif mode == "passive":
+		for body in $Vision.get_overlapping_bodies():
+			if body.name == "Bello":
+				mode = "active"
 	
 	move_and_slide()
 

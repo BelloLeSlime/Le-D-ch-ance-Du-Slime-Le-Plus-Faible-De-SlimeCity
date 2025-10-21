@@ -11,6 +11,8 @@ var protected = false
 
 var can_be_damaged = true
 
+var mode = "passive"
+
 func _ready():
 	player = get_tree().get_root().get_node("Main/Level1/Bello")
 
@@ -24,13 +26,18 @@ func _physics_process(_delta):
 	
 	var dir = (player.global_position - global_position).normalized()
 	
-	var distance = global_position.distance_to(player.global_position)
-	if distance > 60 and $Freeze.time_left == 0:
-		velocity = dir * speed
-	else:
-		velocity = Vector2.ZERO
-	
-	move_and_slide()
+	if mode == "active":
+		var distance = global_position.distance_to(player.global_position)
+		if distance > 60 and $Freeze.time_left == 0:
+			velocity = dir * speed
+		else:
+			velocity = Vector2.ZERO
+		
+		move_and_slide()
+	elif mode == "passive":
+		for body in $Vision.get_overlapping_bodies():
+			if body.name == "Bello":
+				mode = "active"
 
 func _on_attack_cooldown_timeout():
 	can_attack = true

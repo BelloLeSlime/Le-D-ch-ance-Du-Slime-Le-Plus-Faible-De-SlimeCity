@@ -1,11 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvi663fhm7t8l"]
+[gd_scene load_steps=5 format=3 uid="uid://dvi663fhm7t8l"]
 
-[ext_resource type="Script" path="res://scripts/protector_enemy.gd" id="1_mu5ik"]
+[ext_resource type="Script" uid="uid://2vh3os4elj78" path="res://scripts/protector_enemy.gd" id="1_mu5ik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bx1yj"]
 size = Vector2(80, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33euu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uvu0f"]
+radius = 2092.1873
 
 [node name="ProtectorEnemy" type="CharacterBody2D"]
 z_index = 2
@@ -41,6 +44,11 @@ wait_time = 3.0
 
 [node name="DamageCooldown" type="Timer" parent="."]
 wait_time = 0.2
+
+[node name="Vision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
+shape = SubResource("CircleShape2D_uvu0f")
 
 [connection signal="timeout" from="ProtectCooldown" to="." method="_on_protect_cooldown_timeout"]
 [connection signal="timeout" from="DamageCooldown" to="." method="_on_damage_cooldown_timeout"]

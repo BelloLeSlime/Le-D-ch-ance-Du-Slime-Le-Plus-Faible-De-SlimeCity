@@ -1,12 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6l0idlnhjjl4"]
+[gd_scene load_steps=5 format=3 uid="uid://b6l0idlnhjjl4"]
 
-[ext_resource type="Script" path="res://scripts/melee_enemy.gd" id="1_ms43n"]
+[ext_resource type="Script" uid="uid://c7daks4csvgah" path="res://scripts/melee_enemy.gd" id="1_ms43n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bx1yj"]
 size = Vector2(80, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehx1r"]
 size = Vector2(118, 114)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tq73k"]
+radius = 2092.1873
 
 [node name="MeleeEnemy" type="CharacterBody2D"]
 z_index = 2
@@ -40,6 +43,11 @@ one_shot = true
 
 [node name="DamageCooldown" type="Timer" parent="."]
 wait_time = 0.2
+
+[node name="Vision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
+shape = SubResource("CircleShape2D_tq73k")
 
 [connection signal="body_entered" from="Attack" to="." method="_on_attack_body_entered"]
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
