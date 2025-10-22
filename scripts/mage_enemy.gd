@@ -15,10 +15,14 @@ var mode = "passive"
 
 func _ready():
 	player = get_tree().get_root().get_node("Main/Level1/Bello")
-
+	$AnimatedSprite2D.play("walk")
+	
 func _physics_process(_delta):
 	
 	var dir = (player.global_position - global_position).normalized()
+	
+	$Baton.rotation = dir.angle() + 90
+	$Baton.position = dir * 200
 	
 	var distance = global_position.distance_to(player.global_position)
 	

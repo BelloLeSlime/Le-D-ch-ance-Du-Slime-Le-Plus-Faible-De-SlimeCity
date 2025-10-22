@@ -1,50 +1,96 @@
-[gd_scene load_steps=3 format=3 uid="uid://c26mspa0nornw"]
+[gd_scene load_steps=11 format=3 uid="uid://c26mspa0nornw"]
 
 [ext_resource type="Script" uid="uid://bb4wp8mfskejm" path="res://scripts/main.gd" id="1_w4c5k"]
 [ext_resource type="FontFile" uid="uid://yfhtv0kkh6u0" path="res://assets/fonts/determination.ttf" id="2_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://b7sqthbgkkxgs" path="res://assets/textures/gui.png" id="2_sugp2"]
+[ext_resource type="Script" uid="uid://dgapla4cxdvvs" path="res://scripts/quit.gd" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://b1j0fmewc44pg" path="res://scripts/play.gd" id="4_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://d3wjjeaf3qga3" path="res://assets/textures/BackgroundMenu.png" id="6_tefeu"]
+[ext_resource type="Texture2D" uid="uid://lea3n04prrrq" path="res://assets/textures/title.png" id="7_o6xl0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyhfs"]
+atlas = ExtResource("2_sugp2")
+region = Rect2(0, 0, 53, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbgi4"]
+atlas = ExtResource("2_sugp2")
+region = Rect2(0, 22, 53, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tefeu"]
+atlas = ExtResource("2_sugp2")
+region = Rect2(4, 42, 45, 19)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_w4c5k")
 
 [node name="Menu" type="CanvasLayer" parent="."]
 
+[node name="TextureRect" type="TextureRect" parent="Menu"]
+offset_right = 1150.2222
+offset_bottom = 647.0
+texture = ExtResource("6_tefeu")
+expand_mode = 1
+
+[node name="Incipit" type="Button" parent="Menu"]
+texture_filter = 1
+offset_left = 423.0
+offset_top = 203.0
+offset_right = 744.0
+offset_bottom = 375.0
+icon = SubResource("AtlasTexture_jyhfs")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_tbgi4")
+
 [node name="Play" type="Button" parent="Menu"]
-offset_left = 571.0
-offset_top = 286.0
-offset_right = 659.0
-offset_bottom = 349.0
+texture_filter = 1
+offset_left = 393.13452
+offset_top = 353.0
+offset_right = 770.5852
+offset_bottom = 502.0
 theme_override_fonts/font = ExtResource("2_0wfyh")
 theme_override_font_sizes/font_size = 40
-text = "Play"
+icon = SubResource("AtlasTexture_tbgi4")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_tbgi4")
 
 [node name="Quit" type="Button" parent="Menu"]
-offset_left = 571.0
-offset_top = 370.0
-offset_right = 662.0
-offset_bottom = 433.0
+texture_filter = 1
+offset_left = 459.98477
+offset_top = 507.0
+offset_right = 702.01526
+offset_bottom = 618.0
 theme_override_fonts/font = ExtResource("2_0wfyh")
 theme_override_font_sizes/font_size = 40
-text = "Quit"
+icon = SubResource("AtlasTexture_tefeu")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_jyhfs")
 
 [node name="Boss" type="Button" parent="Menu"]
-offset_left = 835.0
-offset_top = 400.0
-offset_right = 879.0
-offset_bottom = 431.0
+offset_left = 1081.0
+offset_top = 593.0
+offset_right = 1126.0
+offset_bottom = 624.0
 theme_override_fonts/font = ExtResource("2_0wfyh")
 text = "Boss"
 
-[node name="Title" type="Label" parent="Menu"]
-offset_left = 235.0
-offset_top = 73.0
-offset_right = 983.0
-offset_bottom = 214.0
-theme_override_fonts/font = ExtResource("2_0wfyh")
-theme_override_font_sizes/font_size = 50
-text = "LA DECHEANCE DU SLIME
-LE PLUS FAIBLE DE SLIMECITY"
-horizontal_alignment = 1
+[node name="Sprite2D" type="Sprite2D" parent="Menu"]
+texture_filter = 1
+position = Vector2(597, 80)
+scale = Vector2(2.4333332, 2.4333334)
+texture = ExtResource("7_o6xl0")
 
+[connection signal="mouse_entered" from="Menu/Incipit" to="Menu/Incipit" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/Incipit" to="Menu/Incipit" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Menu/Play" to="Menu/Play" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/Play" to="Menu/Play" method="_on_mouse_exited"]
 [connection signal="pressed" from="Menu/Play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="Menu/Quit" to="Menu/Quit" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Menu/Quit" to="Menu/Quit" method="_on_mouse_exited"]
 [connection signal="pressed" from="Menu/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Menu/Boss" to="." method="_on_boss_pressed"]

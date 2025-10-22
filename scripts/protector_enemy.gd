@@ -3,7 +3,7 @@ extends CharacterBody2D
 signal destroy
 
 var health = 2
-var speed = 200
+var speed = 600
 var player: CharacterBody2D = null
 var can_attack = true
 var protecting: CharacterBody2D = null
@@ -11,7 +11,7 @@ var protect_preload = preload("res://scenes/protect.tscn")
 
 var can_protect = true
 
-var protect: ColorRect = null
+var protect: Node2D = null
 
 var protected = false
 
@@ -42,7 +42,6 @@ func _physics_process(_delta):
 					break
 	elif protecting != null:
 		protect.global_position = protecting.global_position
-		protect.global_position.y -= 70
 	
 	var dir = (player.global_position - global_position).normalized()
 	

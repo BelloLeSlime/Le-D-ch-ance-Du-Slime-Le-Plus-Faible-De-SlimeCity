@@ -1,7 +1,13 @@
-[gd_scene load_steps=37 format=3 uid="uid://chvmn20p3r0jd"]
+[gd_scene load_steps=43 format=3 uid="uid://chvmn20p3r0jd"]
 
 [ext_resource type="Script" uid="uid://bbr2frwxobdo7" path="res://scripts/bello.gd" id="1_pb4cl"]
 [ext_resource type="Texture2D" uid="uid://b0fq2nic45tky" path="res://assets/textures/player2.png" id="2_320mq"]
+[ext_resource type="AudioStream" uid="uid://cce6wklg1xr0l" path="res://assets/sounds/dash.mp3" id="3_4bht6"]
+[ext_resource type="AudioStream" uid="uid://dmy1ka0bg46re" path="res://assets/sounds/slime.mp3" id="4_gjnns"]
+[ext_resource type="AudioStream" uid="uid://2ekjcbaayhbc" path="res://assets/sounds/sword.wav" id="5_bqi7a"]
+[ext_resource type="AudioStream" uid="uid://unrrsgopljht" path="res://assets/sounds/arrow.ogg" id="6_hsecr"]
+[ext_resource type="AudioStream" uid="uid://d3jgusduobslh" path="res://assets/sounds/freeze.wav" id="7_4jje2"]
+[ext_resource type="AudioStream" uid="uid://cc1wbpl22p4aj" path="res://assets/sounds/potion.mp3" id="8_gjnns"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y53qs"]
 size = Vector2(20, 8.5)
@@ -366,6 +372,27 @@ offset_bottom = 415.0
 color = Color(0, 0.670588, 1, 1)
 
 [node name="CameraShake" type="Timer" parent="."]
+
+[node name="Dash" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_4bht6")
+
+[node name="Damage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_gjnns")
+
+[node name="Sword" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_bqi7a")
+volume_db = 10.0
+
+[node name="Arrow" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_hsecr")
+volume_db = 10.0
+
+[node name="Freeze" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_4jje2")
+volume_db = 10.0
+
+[node name="Potion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_gjnns")
 
 [connection signal="timeout" from="DashSpeedCooldown" to="." method="_on_dash_speed_cooldown_timeout"]
 [connection signal="timeout" from="DashRecoverCooldown" to="." method="_on_dash_recover_cooldown_timeout"]

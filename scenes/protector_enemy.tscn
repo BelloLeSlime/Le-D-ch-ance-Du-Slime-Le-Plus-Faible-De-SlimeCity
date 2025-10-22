@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bx1yj"]
 size = Vector2(80, 80)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_33euu"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_w3q1s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uvu0f"]
 radius = 1222.0981
@@ -37,7 +37,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Reach"]
 scale = Vector2(108.793, 108.793)
-shape = SubResource("RectangleShape2D_33euu")
+shape = SubResource("CircleShape2D_w3q1s")
 
 [node name="ProtectCooldown" type="Timer" parent="."]
 wait_time = 3.0

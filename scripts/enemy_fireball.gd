@@ -9,6 +9,8 @@ func _physics_process(delta):
 		if "Bello" in body.name:
 			body.health -= 20
 			queue_free()
+		if body.name == "Tilemap":
+			queue_free()
 
 func _on_lifetime_timeout():
 	queue_free()

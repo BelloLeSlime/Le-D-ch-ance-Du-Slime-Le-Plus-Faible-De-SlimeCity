@@ -22,7 +22,20 @@ func _process(_delta):
 		$Arrow3.visible = false
 	
 	
-	$Health.text = "Health : " + str(Globals.health)
+	if Globals.health == 500:
+		$Health.texture = load("res://assets/textures/Health1.png")
+	elif Globals.health >= 400:
+		$Health.texture = load("res://assets/textures/Health2.png")
+	elif Globals.health >= 300:
+		$Health.texture = load("res://assets/textures/Health3.png")
+	elif Globals.health >= 200:
+		$Health.texture = load("res://assets/textures/Health4.png")
+	elif Globals.health >= 100:
+		$Health.texture = load("res://assets/textures/Health5.png")
+	else:
+		$Health.texture = load("res://assets/textures/Health6.png")
+	
+	
 	if Globals.can_heal:
 		$HealCooldown.text = "Heal !"
 	else:

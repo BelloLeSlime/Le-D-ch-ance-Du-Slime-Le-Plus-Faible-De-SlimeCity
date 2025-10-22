@@ -19,6 +19,7 @@ offset_left = -20.0
 offset_top = -20.0
 offset_right = 20.0
 offset_bottom = 20.0
+color = Color(0.16565639, 0.16565642, 0.16565639, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_qccsw")
@@ -29,3 +30,14 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TornadoAttack"]
 shape = SubResource("CircleShape2D_fntyt")
+
+[node name="TornadoEnd" type="Timer" parent="."]
+one_shot = true
+
+[node name="RestTime" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="TornadoCooldown" type="Timer" parent="."]
+
+[connection signal="timeout" from="RestTime" to="." method="_on_rest_time_timeout"]

@@ -30,6 +30,7 @@ func _physics_process(_delta):
 		get_tree().quit()
 	
 	if last_health > health:
+		$Damage.play()
 		shake = true
 		shake_duration = 0.25
 		shake_strenght = 10.0
@@ -49,11 +50,13 @@ func _physics_process(_delta):
 	input_vector = input_vector.normalized()
 	
 	if Input.is_action_just_pressed("shift") and dash_left > 0:
+		$Dash.play()
 		speed = 1200
 		dash_left -= 1
 		$DashSpeedCooldown.start()
 	
 	if Input.is_action_just_pressed("left_click") and can_melee:
+		$Sword.play()
 		can_melee = false
 		sword = false
 		var mouse_pos = get_global_mouse_position()
@@ -67,6 +70,7 @@ func _physics_process(_delta):
 		$MeleeCooldown.start()
 	
 	if Input.is_action_just_pressed("right_click") and arrow_left > 0:
+		$Arrow.play()
 		arrow_left -= 1
 		var mouse_pos = get_global_mouse_position()
 		var dir = (mouse_pos - global_position).normalized()
@@ -78,6 +82,7 @@ func _physics_process(_delta):
 		$ArrowCooldown.start()
 	
 	if Input.is_action_just_pressed("e") and can_freeze:
+		$Freeze.play()
 		can_freeze = false
 		var freeze = freeze_preload.instantiate()
 		get_tree().current_scene.add_child(freeze)
@@ -86,6 +91,7 @@ func _physics_process(_delta):
 		$FreezeCooldown.start()
 	
 	if Input.is_action_just_pressed("a") and can_heal:
+		$Potion.play()
 		can_heal = false
 		$HealCooldown.start()
 		health += 250
