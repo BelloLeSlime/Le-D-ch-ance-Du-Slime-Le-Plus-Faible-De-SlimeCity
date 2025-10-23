@@ -35,7 +35,7 @@ func _on_bossfight_trigger_body_entered(body: Node2D) -> void:
 		$TileMap.set_cell(0,Vector2i(41,-445),0,Vector2i(1,0))
 		$TileMap.set_cell(0,Vector2i(41,-444),0,Vector2i(1,0))
 		$BossfightTrigger.queue_free()
-		$"Enemy Chef Duculte".attack = ""
+		$"Enemy Chef Duculte".attack = "rest"
 		$"Enemy Chef Duculte".can_be_damaged = true
 		music.stream = load("res://assets/music/EvilDevilPart1.mp3")
 		music.volume_db = -5

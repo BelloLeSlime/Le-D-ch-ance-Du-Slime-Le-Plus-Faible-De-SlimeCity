@@ -1,0 +1,188 @@
+[gd_scene load_steps=5 format=3 uid="uid://cs5y82nv67kdi"]
+
+[ext_resource type="Script" uid="uid://4ckyhh5om7wq" path="res://scripts/megatornado.gd" id="1_q652c"]
+[ext_resource type="Texture2D" uid="uid://5o23j7repayb" path="res://assets/textures/chefduculte.png" id="1_xyvqn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q652c"]
+atlas = ExtResource("1_xyvqn")
+region = Rect2(21, 0, 31, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_be4hs"]
+size = Vector2(30.5061, 6.363961)
+
+[node name="Megatornado" type="Node2D"]
+z_index = 3
+scale = Vector2(3, 3)
+script = ExtResource("1_q652c")
+
+[node name="Sword1" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("AtlasTexture_q652c")
+offset = Vector2(15.5, -17)
+
+[node name="Area2D" type="Area2D" parent="Sword1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword1/Area2D"]
+position = Vector2(20, -19)
+rotation = -0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_be4hs")
+
+[node name="Sword3" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 0.5235988
+texture = SubResource("AtlasTexture_q652c")
+offset = Vector2(15.5, -17)
+
+[node name="Area2D" type="Area2D" parent="Sword3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword3/Area2D"]
+position = Vector2(20, -19)
+rotation = -0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_be4hs")
+
+[node name="Sword5" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 1.0471976
+texture = SubResource("AtlasTexture_q652c")
+offset = Vector2(15.5, -17)
+
+[node name="Area2D" type="Area2D" parent="Sword5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword5/Area2D"]
+position = Vector2(20, -19)
+rotation = -0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_be4hs")
+
+[node name="Sword7" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 1.5707964
+texture = SubResource("AtlasTexture_q652c")
+offset = Vector2(15.5, -17)
+
+[node name="Area2D" type="Area2D" parent="Sword7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword7/Area2D"]
+position = Vector2(20, -19)
+rotation = -0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_be4hs")
+
+[node name="Sword9" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 2.0943952
+texture = SubResource("AtlasTexture_q652c")
+offset = Vector2(15.5, -17)
+
+[node name="Area2D" type="Area2D" parent="Sword9"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword9/Area2D"]
+position = Vector2(20, -19)
+rotation = -0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_be4hs")
+
+[node name="Sword11" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 2.6179938
+texture = SubResource("AtlasTexture_q652c")
+offset = Vector2(15.5, -17)
+
+[node name="Area2D" type="Area2D" parent="Sword11"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword11/Area2D"]
+position = Vector2(20, -19)
+rotation = -0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_be4hs")
+
+[node name="Sword13" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 3.1415927
+texture = SubResource("AtlasTexture_q652c")
+offset = Vector2(15.5, -17)
+
+[node name="Area2D" type="Area2D" parent="Sword13"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword13/Area2D"]
+position = Vector2(20, -19)
+rotation = -0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_be4hs")
+
+[node name="Sword15" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 3.6651917
+texture = SubResource("AtlasTexture_q652c")
+offset = Vector2(15.5, -17)
+
+[node name="Area2D" type="Area2D" parent="Sword15"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword15/Area2D"]
+position = Vector2(20, -19)
+rotation = -0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_be4hs")
+
+[node name="Sword17" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 4.1887903
+texture = SubResource("AtlasTexture_q652c")
+offset = Vector2(15.5, -17)
+
+[node name="Area2D" type="Area2D" parent="Sword17"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword17/Area2D"]
+position = Vector2(20, -19)
+rotation = -0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_be4hs")
+
+[node name="Sword19" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 4.712389
+texture = SubResource("AtlasTexture_q652c")
+offset = Vector2(15.5, -17)
+
+[node name="Area2D" type="Area2D" parent="Sword19"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword19/Area2D"]
+position = Vector2(20, -19)
+rotation = -0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_be4hs")
+
+[node name="Sword21" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 5.2359877
+texture = SubResource("AtlasTexture_q652c")
+offset = Vector2(15.5, -17)
+
+[node name="Area2D" type="Area2D" parent="Sword21"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword21/Area2D"]
+position = Vector2(20, -19)
+rotation = -0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_be4hs")
+
+[node name="Sword23" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 5.759587
+texture = SubResource("AtlasTexture_q652c")
+offset = Vector2(15.5, -17)
+
+[node name="Area2D" type="Area2D" parent="Sword23"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword23/Area2D"]
+position = Vector2(20, -19)
+rotation = -0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_be4hs")
+
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

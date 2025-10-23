@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://dje065ytmuju7" path="res://scripts/freeze.gd" id="1_eveti"]
 [ext_resource type="Texture2D" uid="uid://ch8k2efw8fqgg" path="res://assets/textures/freeze.png" id="2_xa5ue"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8lv4h"]
-radius = 143.283
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wicxs"]
+radius = 80.50001
+height = 395.0
 
 [node name="Freeze" type="Area2D"]
 z_index = 1
@@ -20,11 +21,12 @@ autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = -1
-shape = SubResource("CircleShape2D_8lv4h")
+rotation = -1.5707941
+shape = SubResource("CapsuleShape2D_wicxs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(4.375, 4.375)
+scale = Vector2(5.2999997, 5.2999997)
 texture = ExtResource("2_xa5ue")
 
 [connection signal="timeout" from="Lifetime" to="." method="_on_disapeer_cooldown_timeout"]

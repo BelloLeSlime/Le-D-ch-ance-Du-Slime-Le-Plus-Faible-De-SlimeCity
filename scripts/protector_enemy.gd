@@ -20,12 +20,13 @@ var mode = "passive"
 
 func _ready():
 	player = get_tree().get_root().get_node("Main/World/Bello")
+	$AnimatedSprite2D.play("walk")
 
 func _physics_process(_delta):
 	if Globals.playing:
 		if protecting == null and can_protect:
 			for body in $Reach.get_overlapping_bodies():
-				if "Enemy" in body.name and body != self and not "Arrow" in body.name and not "Fireball" in body.name:
+				if "Enemy" in body.name and body != self and not "Arrow" in body.name and not "Fireball" in body.name and not "Chef" in body.name or "@CharacterBody2D" in body.name:
 					if body.protected == false:
 						protecting = body
 						protecting.protected = true

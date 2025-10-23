@@ -78,8 +78,8 @@ shape = SubResource("CircleShape2D_tq73k")
 
 [node name="Sword" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(108, -1.9073486e-06)
-scale = Vector2(3.5, 3.5)
+position = Vector2(140, -26)
+scale = Vector2(6.1875, 6.1875)
 texture = ExtResource("3_vaj5w")
 
 [connection signal="body_entered" from="Attack" to="." method="_on_attack_body_entered"]

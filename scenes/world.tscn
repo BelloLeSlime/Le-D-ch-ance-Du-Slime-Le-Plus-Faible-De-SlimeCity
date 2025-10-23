@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d3tneckx2oiwp"]
+[gd_scene load_steps=19 format=3 uid="uid://d3tneckx2oiwp"]
 
 [ext_resource type="Script" uid="uid://b7thsdympt303" path="res://scripts/world.gd" id="1_q5onr"]
 [ext_resource type="PackedScene" uid="uid://4khaeqq6n2tp" path="res://scenes/ui.tscn" id="2_jhx03"]
@@ -60,14 +60,17 @@ size = Vector2(521, 120)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ku1j"]
 size = Vector2(199, 1646)
 
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_q5onr"]
+file = "res://assets/videos/phase2.ogv"
+
 [node name="World" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_q5onr")
 metadata/_edit_horizontal_guides_ = [-14374.0]
 
 [node name="UI" parent="." instance=ExtResource("2_jhx03")]
 
 [node name="Bello" parent="." instance=ExtResource("3_o8fc1")]
-y_sort_enabled = true
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -129,6 +132,23 @@ offset_bottom = 617.0
 theme_override_fonts/font = ExtResource("6_7t5mc")
 theme_override_font_sizes/font_size = 32
 text = "CHEF DUCULTE : 250"
+
+[node name="Cutscene" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Cutscene" type="VideoStreamPlayer" parent="Cutscene"]
+offset_left = 1.0
+offset_top = 54.0
+offset_right = 1151.0
+offset_bottom = 594.0
+stream = SubResource("VideoStreamTheora_q5onr")
+expand = true
+
+[node name="ColorRect" type="ColorRect" parent="Cutscene"]
+z_index = -1
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
 
 [node name="Enemy Chef Duculte" parent="." instance=ExtResource("7_lakw3")]
 position = Vector2(6786.0005, -14269)
@@ -1098,4 +1118,3 @@ position = Vector2(2930, -13023)
 [connection signal="body_entered" from="Level3" to="." method="_on_level_3_body_entered"]
 [connection signal="body_entered" from="Level2other" to="." method="_on_level_2_other_body_entered"]
 [connection signal="body_entered" from="BossfightTrigger" to="." method="_on_bossfight_trigger_body_entered"]
-[connection signal="change_music" from="Enemy Chef Duculte" to="." method="_on_enemy_chef_duculte_change_music"]

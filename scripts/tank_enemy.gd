@@ -15,6 +15,7 @@ var mode = "passive"
 
 func _ready():
 	player = get_tree().get_root().get_node("Main/World/Bello")
+	$AnimatedSprite2D.play("walk")
 
 func _physics_process(_delta):
 	if Globals.playing:

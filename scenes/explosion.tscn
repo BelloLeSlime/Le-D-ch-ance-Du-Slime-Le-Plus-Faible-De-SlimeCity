@@ -1,0 +1,120 @@
+[gd_scene load_steps=13 format=3 uid="uid://4bplr2mdoako"]
+
+[ext_resource type="Script" uid="uid://cogknwu06slnh" path="res://scripts/explosion.gd" id="1_nfeox"]
+[ext_resource type="Texture2D" uid="uid://dfuaxgblq020c" path="res://assets/textures/explosion.png" id="2_aw4cw"]
+[ext_resource type="Texture2D" uid="uid://bio0iftpvdqbv" path="res://assets/textures/fire in the hole.png" id="3_aw4cw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nfeox"]
+radius = 13.0
+height = 68.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3el85"]
+atlas = ExtResource("3_aw4cw")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbmxj"]
+atlas = ExtResource("3_aw4cw")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfoey"]
+atlas = ExtResource("3_aw4cw")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8gpv"]
+atlas = ExtResource("3_aw4cw")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cun36"]
+atlas = ExtResource("3_aw4cw")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk406"]
+atlas = ExtResource("3_aw4cw")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jttm"]
+atlas = ExtResource("3_aw4cw")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6smmu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3el85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbmxj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfoey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8gpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cun36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vk406")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jttm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Explosion" type="Node2D"]
+z_index = 2
+scale = Vector2(3, 3)
+script = ExtResource("1_nfeox")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_aw4cw")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_nfeox")
+
+[node name="Fire1" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(-20, -24)
+scale = Vector2(2.6666667, 2.6666667)
+sprite_frames = SubResource("SpriteFrames_6smmu")
+frame_progress = 0.37446067
+
+[node name="Fire2" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(0, -24)
+scale = Vector2(2.6666667, 2.6666667)
+sprite_frames = SubResource("SpriteFrames_6smmu")
+frame_progress = 0.36903104
+
+[node name="Fire3" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(20, -24)
+scale = Vector2(2.6666667, 2.6666667)
+sprite_frames = SubResource("SpriteFrames_6smmu")
+frame_progress = 0.36041918
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="Lifetime" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

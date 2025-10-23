@@ -1,11 +1,31 @@
 extends CanvasLayer
 
 func _process(_delta):
-	$DashLeft.text = "Dashes : " + str(Globals.dash_left)
-	if Globals.can_freeze:
-		$FreezeCooldown.text = "Freeze !"
+	
+	if Globals.dash_left >= 1:
+		$Dash1.visible = true
 	else:
-		$FreezeCooldown.text = "Freeze in : " + str(Globals.freeze_cooldown)
+		$Dash1.visible = false
+	if Globals.dash_left >= 2:
+		$Dash2.visible = true
+	else:
+		$Dash2.visible = false
+	
+	
+	
+	
+	if Globals.can_freeze:
+		$Freeze.texture = load("res://assets/textures/flocon4.png")
+	elif Globals.freeze_cooldown <= 0:
+		$Freeze.texture = load("res://assets/textures/flocon3.png")
+	elif Globals.freeze_cooldown <= 1:
+		$Freeze.texture = load("res://assets/textures/flocon2.png")
+	elif Globals.freeze_cooldown <= 2:
+		$Freeze.texture = load("res://assets/textures/flocon1.png")
+	else:
+		$Freeze.texture = load("res://assets/textures/flocon0.png")
+	
+	
 	
 	
 	if Globals.arrow_left >= 1:

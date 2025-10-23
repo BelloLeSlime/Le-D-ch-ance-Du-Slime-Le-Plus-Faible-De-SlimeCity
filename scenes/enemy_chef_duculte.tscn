@@ -1,34 +1,88 @@
-[gd_scene load_steps=4 format=3 uid="uid://ca363730kapfa"]
+[gd_scene load_steps=13 format=3 uid="uid://ca363730kapfa"]
 
 [ext_resource type="Script" uid="uid://bp62vjmc7j1w3" path="res://scripts/enemy_chef_duculte.gd" id="1_fntyt"]
+[ext_resource type="Texture2D" uid="uid://5o23j7repayb" path="res://assets/textures/chefduculte.png" id="2_el178"]
+[ext_resource type="Texture2D" uid="uid://c6m6lflwp71ca" path="res://assets/textures/chefduculte_booste.png" id="2_ggpjk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkdx2"]
+atlas = ExtResource("2_ggpjk")
+region = Rect2(0, 0, 74, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6wox"]
+atlas = ExtResource("2_ggpjk")
+region = Rect2(0, 23, 74, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggpjk"]
+atlas = ExtResource("2_el178")
+region = Rect2(0, 0, 21, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62qyr"]
+atlas = ExtResource("2_el178")
+region = Rect2(0, 16, 21, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fkdx2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkdx2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6wox")
+}],
+"loop": true,
+"name": &"demon",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggpjk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62qyr")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qccsw"]
-size = Vector2(40, 40)
+size = Vector2(56, 40)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fntyt"]
 radius = 56.396416
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_el178"]
+atlas = ExtResource("2_el178")
+region = Rect2(21, 0, 31, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_el178"]
+size = Vector2(8.575607, 34.064213)
+
 [node name="Enemy Chef Duculte" type="CharacterBody2D"]
+z_index = 3
 scale = Vector2(3, 3)
 collision_layer = 2
 collision_mask = 25
 script = ExtResource("1_fntyt")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-color = Color(0.16565639, 0.16565642, 0.16565639, 1)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -28.666668)
+scale = Vector2(3.75, 3.75)
+sprite_frames = SubResource("SpriteFrames_fkdx2")
+animation = &"demon"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -8.333333)
 shape = SubResource("RectangleShape2D_qccsw")
 
-[node name="TornadoAttack" type="Area2D" parent="."]
+[node name="JumpAttack" type="Area2D" parent="."]
+visible = false
 monitoring = false
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TornadoAttack"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpAttack"]
+position = Vector2(-0.33333334, -8)
 shape = SubResource("CircleShape2D_fntyt")
 
 [node name="TornadoEnd" type="Timer" parent="."]
@@ -46,6 +100,31 @@ one_shot = true
 wait_time = 0.2
 one_shot = true
 
+[node name="SongTimer" type="Timer" parent="."]
+wait_time = 9.4
+one_shot = true
+
+[node name="Sword" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(76, -47.333336)
+scale = Vector2(2.6935484, 2.6935484)
+texture = SubResource("AtlasTexture_el178")
+
+[node name="TornadoAttack" type="Area2D" parent="Sword"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword/TornadoAttack"]
+position = Vector2(5.2199535, -2.868657)
+rotation = 0.7853982
+shape = SubResource("RectangleShape2D_el178")
+
+[node name="AttackCooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="ExplosionCooldown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="timeout" from="RestTime" to="." method="_on_rest_time_timeout"]
 [connection signal="timeout" from="TornadoCooldown" to="." method="_on_tornado_cooldown_timeout"]
 [connection signal="timeout" from="DamageCooldown" to="." method="_on_damage_cooldown_timeout"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

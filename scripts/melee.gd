@@ -38,7 +38,7 @@ func _physics_process(delta):
 	position = Vector2.RIGHT.rotated(current_angle) * distance
 	
 	for body in $Area2D.get_overlapping_bodies():
-		if "Enemy" in body.name:
+		if "Enemy" in body.name or "@CharacterBody2D" in body.name:
 			body.damage()
 	
 	for area in $Area2D.get_overlapping_areas():

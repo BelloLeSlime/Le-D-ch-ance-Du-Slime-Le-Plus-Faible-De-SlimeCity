@@ -6,7 +6,7 @@ var speed = 1100
 func _physics_process(delta):
 	global_position += dir * speed * delta
 	for body in get_overlapping_bodies():
-		if "Enemy" in body.name:
+		if "Enemy" in body.name or "@CharacterBody2D" in body.name:
 			body.damage()
 			queue_free()
 		if body.name == "TileMap":

@@ -321,6 +321,8 @@ animations = [{
 
 [node name="Bello" type="CharacterBody2D"]
 z_index = 3
+z_as_relative = false
+y_sort_enabled = true
 scale = Vector2(3, 3)
 collision_mask = 22
 script = ExtResource("1_pb4cl")
