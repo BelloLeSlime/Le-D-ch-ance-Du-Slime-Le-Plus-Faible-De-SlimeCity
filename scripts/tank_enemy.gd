@@ -14,30 +14,33 @@ var can_be_damaged = true
 var mode = "passive"
 
 func _ready():
-	player = get_tree().get_root().get_node("Main/Level1/Bello")
+	player = get_tree().get_root().get_node("Main/World/Bello")
 
 func _physics_process(_delta):
-	
-	for body in $Attack.get_overlapping_bodies():
-		if body.name == "Bello" and can_attack and $Freeze.time_left == 0:
-			can_attack = false
-			body.health -= 35
-			$AttackCooldown.start()
-	
-	var dir = (player.global_position - global_position).normalized()
-	
-	if mode == "active":
-		var distance = global_position.distance_to(player.global_position)
-		if distance > 60 and $Freeze.time_left == 0:
-			velocity = dir * speed
-		else:
-			velocity = Vector2.ZERO
+	if Globals.playing:
+		for body in $Attack.get_overlapping_bodies():
+			if body.name == "Bello" and can_attack and $Freeze.time_left == 0:
+				can_attack = false
+				body.health -= 35
+				$AttackCooldown.start()
 		
-		move_and_slide()
-	elif mode == "passive":
-		for body in $Vision.get_overlapping_bodies():
-			if body.name == "Bello":
-				mode = "active"
+		var dir = (player.global_position - global_position).normalized()
+		
+		$Shield.rotation = dir.angle() + 270
+		$Shield.position = dir * 100
+		
+		if mode == "active":
+			var distance = global_position.distance_to(player.global_position)
+			if distance > 60 and $Freeze.time_left == 0:
+				velocity = dir * speed
+			else:
+				velocity = Vector2.ZERO
+			
+			move_and_slide()
+		elif mode == "passive":
+			for body in $Vision.get_overlapping_bodies():
+				if body.name == "Bello":
+					mode = "active"
 
 func _on_attack_cooldown_timeout():
 	can_attack = true
@@ -51,6 +54,7 @@ func damage():
 			emit_signal("destroy")
 		else:
 			health -= 1
+			$Shield.visible = false
 			if health <= 0:
 				queue_free()
 

@@ -35,9 +35,17 @@ shape = SubResource("CircleShape2D_fntyt")
 one_shot = true
 
 [node name="RestTime" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 2.0
 one_shot = true
 
 [node name="TornadoCooldown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="DamageCooldown" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
 
 [connection signal="timeout" from="RestTime" to="." method="_on_rest_time_timeout"]
+[connection signal="timeout" from="TornadoCooldown" to="." method="_on_tornado_cooldown_timeout"]
+[connection signal="timeout" from="DamageCooldown" to="." method="_on_damage_cooldown_timeout"]

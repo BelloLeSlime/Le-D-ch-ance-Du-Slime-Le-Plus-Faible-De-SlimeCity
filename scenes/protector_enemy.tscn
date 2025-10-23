@@ -1,6 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvi663fhm7t8l"]
+[gd_scene load_steps=9 format=3 uid="uid://dvi663fhm7t8l"]
 
 [ext_resource type="Script" uid="uid://2vh3os4elj78" path="res://scripts/protector_enemy.gd" id="1_mu5ik"]
+[ext_resource type="Texture2D" uid="uid://cx0dced818yq4" path="res://assets/textures/protector.png" id="2_w3q1s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esjt8"]
+atlas = ExtResource("2_w3q1s")
+region = Rect2(0, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdsqo"]
+atlas = ExtResource("2_w3q1s")
+region = Rect2(24, 0, 24, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lnuev"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esjt8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdsqo")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bx1yj"]
 size = Vector2(80, 80)
@@ -17,12 +40,12 @@ collision_layer = 2
 collision_mask = 27
 script = ExtResource("1_mu5ik")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -40.0
-offset_top = -40.0
-scale = Vector2(2, 2)
-color = Color(0, 0.572549, 0, 1)
-metadata/_edit_use_anchors_ = true
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4.5, 4.5)
+sprite_frames = SubResource("SpriteFrames_lnuev")
+animation = &"walk"
+frame_progress = 0.4377332
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_bx1yj")
@@ -32,6 +55,7 @@ wait_time = 3.5
 one_shot = true
 
 [node name="Reach" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -46,6 +70,7 @@ wait_time = 3.0
 wait_time = 0.2
 
 [node name="Vision" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
 shape = SubResource("CircleShape2D_uvu0f")

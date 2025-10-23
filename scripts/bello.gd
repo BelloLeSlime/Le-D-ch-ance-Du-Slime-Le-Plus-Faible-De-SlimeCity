@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal dead
+
 @export var speed = 400
 var input_vector
 var dash_left = 3
@@ -26,8 +28,8 @@ var animation = "walk_down_sword"
 
 func _physics_process(_delta):
 	
-	if health <= 0:
-		get_tree().quit()
+	if health <= 0 or Input.is_action_just_pressed("echap"):
+		emit_signal("dead")
 	
 	if last_health > health:
 		$Damage.play()

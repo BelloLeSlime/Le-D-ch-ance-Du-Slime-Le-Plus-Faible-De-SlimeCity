@@ -1,6 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://uuy4trbyh632"]
+[gd_scene load_steps=9 format=3 uid="uid://uuy4trbyh632"]
 
 [ext_resource type="Script" uid="uid://b4abe7bvujhva" path="res://scripts/tank_enemy.gd" id="1_oyjof"]
+[ext_resource type="Texture2D" uid="uid://dyhaisxlr8x4t" path="res://assets/textures/tank.png" id="2_1jugj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubg1q"]
+atlas = ExtResource("2_1jugj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p67f1"]
+atlas = ExtResource("2_1jugj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dlxkk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubg1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p67f1")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bx1yj"]
 size = Vector2(80, 80)
@@ -17,17 +40,19 @@ collision_layer = 2
 collision_mask = 27
 script = ExtResource("1_oyjof")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -40.0
-offset_top = -40.0
-scale = Vector2(2, 2)
-color = Color(0.501961, 0, 0.6, 1)
-metadata/_edit_use_anchors_ = true
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-5.999999, -14.999998)
+scale = Vector2(5.3125, 5.3125)
+sprite_frames = SubResource("SpriteFrames_dlxkk")
+animation = &"walk"
+frame_progress = 0.4312808
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_bx1yj")
 
 [node name="Attack" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack"]
 shape = SubResource("RectangleShape2D_ehx1r")
@@ -44,10 +69,19 @@ one_shot = true
 wait_time = 0.2
 
 [node name="Vision" type="Area2D" parent="."]
+visible = false
 scale = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
 shape = SubResource("CircleShape2D_oyqd1")
+
+[node name="Shield" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(110, 0)
+scale = Vector2(3.5789473, 3.578947)
+texture = ExtResource("2_1jugj")
+region_enabled = true
+region_rect = Rect2(67, 8, 19, 21)
 
 [connection signal="body_entered" from="Attack" to="." method="_on_attack_body_entered"]
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

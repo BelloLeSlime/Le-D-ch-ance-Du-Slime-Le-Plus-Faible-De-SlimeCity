@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/EvilDevil.mp3-3bb3f7534954d08e322ff80f2a6d744
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

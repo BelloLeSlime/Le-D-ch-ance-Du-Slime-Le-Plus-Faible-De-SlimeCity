@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://4khaeqq6n2tp"]
+[gd_scene load_steps=9 format=3 uid="uid://4khaeqq6n2tp"]
 
 [ext_resource type="Script" uid="uid://3udi5v1em80m" path="res://scripts/ui.gd" id="1_a0hbg"]
 [ext_resource type="Texture2D" uid="uid://dpjrvgjnmhgd2" path="res://assets/textures/arrow.png" id="2_x4jx1"]
 [ext_resource type="FontFile" uid="uid://yfhtv0kkh6u0" path="res://assets/fonts/determination.ttf" id="2_yev5y"]
 [ext_resource type="Texture2D" uid="uid://dxnb4h4r3qj56" path="res://assets/textures/Health1.png" id="3_wm3ai"]
 [ext_resource type="Texture2D" uid="uid://b7sqthbgkkxgs" path="res://assets/textures/gui.png" id="4_gdt2y"]
+[ext_resource type="Texture2D" uid="uid://c88ipem8dhy2p" path="res://assets/textures/heal5.png" id="6_8dubc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wm3ai"]
 atlas = ExtResource("4_gdt2y")
@@ -36,30 +37,6 @@ position = Vector2(142.00002, 89.99999)
 scale = Vector2(3.6086955, 3.608696)
 texture = ExtResource("3_wm3ai")
 
-[node name="DashLeft" type="Label" parent="."]
-offset_left = 527.0
-offset_top = 25.0
-offset_right = 605.0
-offset_bottom = 52.0
-theme_override_fonts/font = ExtResource("2_yev5y")
-text = "Dashes : 1"
-
-[node name="FreezeCooldown" type="Label" parent="."]
-offset_left = 710.0
-offset_top = 23.0
-offset_right = 810.0
-offset_bottom = 46.0
-theme_override_fonts/font = ExtResource("2_yev5y")
-text = "Freeze in : 4"
-
-[node name="HealCooldown" type="Label" parent="."]
-offset_left = 936.0
-offset_top = 25.0
-offset_right = 1017.0
-offset_bottom = 48.0
-theme_override_fonts/font = ExtResource("2_yev5y")
-text = "Heal in : 9"
-
 [node name="Arrow1" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(340.99994, 38.000008)
@@ -80,3 +57,25 @@ position = Vector2(408.99997, 37.99996)
 rotation = -1.1466779
 scale = Vector2(2, 2)
 texture = ExtResource("2_x4jx1")
+
+[node name="DashLeft" type="Label" parent="."]
+offset_left = 527.0
+offset_top = 25.0
+offset_right = 605.0
+offset_bottom = 52.0
+theme_override_fonts/font = ExtResource("2_yev5y")
+text = "Dashes : 1"
+
+[node name="FreezeCooldown" type="Label" parent="."]
+offset_left = 710.0
+offset_top = 23.0
+offset_right = 810.0
+offset_bottom = 46.0
+theme_override_fonts/font = ExtResource("2_yev5y")
+text = "Freeze in : 4"
+
+[node name="Heal" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1064, 86.99999)
+scale = Vector2(5.09375, 5.09375)
+texture = ExtResource("6_8dubc")

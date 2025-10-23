@@ -7,3 +7,5 @@ var arrow_left: int
 var health: int
 var can_heal: bool
 var heal_cooldown: int
+
+var playing: bool = false

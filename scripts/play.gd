@@ -10,6 +10,7 @@ var big_strenght: float = 1.1
 func _ready():
 	origin_scale = scale.x
 	pivot_offset = size / 2
+	focus_mode = Control.FOCUS_NONE
 
 func _process(_delta):
 	if touching_mouse:

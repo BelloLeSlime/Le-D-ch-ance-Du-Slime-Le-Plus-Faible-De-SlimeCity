@@ -35,8 +35,15 @@ func _process(_delta):
 	else:
 		$Health.texture = load("res://assets/textures/Health6.png")
 	
-	
 	if Globals.can_heal:
-		$HealCooldown.text = "Heal !"
+		$Heal.texture = load("res://assets/textures/heal5.png")
+	elif Globals.heal_cooldown <= 1:
+		$Heal.texture = load("res://assets/textures/heal4.png")
+	elif Globals.heal_cooldown <= 3:
+		$Heal.texture = load("res://assets/textures/heal3.png")
+	elif Globals.heal_cooldown <= 6:
+		$Heal.texture = load("res://assets/textures/heal2.png")
+	elif Globals.heal_cooldown <= 8:
+		$Heal.texture = load("res://assets/textures/heal1.png")
 	else:
-		$HealCooldown.text = "Heal in : " + str(Globals.heal_cooldown)
+		$Heal.texture = load("res://assets/textures/heal0.png")

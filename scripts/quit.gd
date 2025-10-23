@@ -15,6 +15,7 @@ func _ready():
 	y = position.y
 	origin_scale = scale.x
 	pivot_offset = size / 2
+	focus_mode = Control.FOCUS_NONE
 
 
 func _process(_delta):

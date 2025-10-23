@@ -12,6 +12,7 @@ region = Rect2(80, 17, 16, 13)
 [node name="EnemyFireball" type="Area2D"]
 scale = Vector2(2, 2)
 collision_layer = 4
+collision_mask = 33
 script = ExtResource("1_35a70")
 
 [node name="Lifetime" type="Timer" parent="."]

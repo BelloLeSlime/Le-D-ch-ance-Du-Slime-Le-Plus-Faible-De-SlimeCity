@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/LookAtTheSky.mp3-f150f6dae844b755bb73c8415438
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
