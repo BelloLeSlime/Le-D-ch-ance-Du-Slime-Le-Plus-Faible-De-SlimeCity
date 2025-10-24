@@ -36,18 +36,19 @@ const jump_random_ponts = [
 ]
 
 const attacks_phase_2 = [
-	#"mega_tornado",
-	#"mega_tornado",
-	#"jump_random",
-	#"jump_random",
-	#"jump_random",
-	#"explosion",
-	#"explosion",
-	#"rest",
-	#"rest",
-	#"enemies",
-	#"enemies",
-	"laser"
+	"mega_tornado",
+	"mega_tornado",
+	"jump_random",
+	"jump_random",
+	"jump_random",
+	"explosion",
+	"explosion",
+	"rest",
+	"rest",
+	"enemies",
+	"enemies",
+	"laser",
+	"laser",
 ]
 
 @onready var music = get_parent().get_parent().get_node("Music")
@@ -163,7 +164,7 @@ func damage():
 	if can_be_damaged:
 		can_be_damaged = false
 		$DamageCooldown.start()
-		health -= 25
+		health -= 1
 		if health <= 0:
 			phase = 2
 			health = 0
