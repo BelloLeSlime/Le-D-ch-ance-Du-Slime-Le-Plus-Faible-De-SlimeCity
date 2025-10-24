@@ -197,7 +197,21 @@ func damage():
 			health = 100
 			can_be_damaged = true
 		elif health <= 0 and phase == 2:
-			pass #fin finale
+			health = 0
+			$RestTime.stop()
+			$TornadoCooldown.stop()
+			$AttackCooldown.stop()
+			$DamageCooldown.stop()
+			attacking = true
+			player.health = 1000000
+			var cutscene = get_parent().get_node("Cutscene")
+			cutscene.visible = true
+			music.stop()
+			player.position = Vector2(-5000, 0)
+			cutscene.get_node("Cutscene").stream = load("res://assets/videos/Fin.ogv")
+			cutscene.get_node("Cutscene").play()
+			await cutscene.get_node("Cutscene").finished
+			player.health = 0
 
 func jump_to(target_position: Vector2):
 	

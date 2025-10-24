@@ -2,7 +2,7 @@
 
 
 
-Bello est un slime normal (par normal, je veux dire qui a plusieurs vies mais qui crève toujours comme un con). C'est le slime le plus faible de SlimeCity. Un jour, quand il se planta un couteau à beurre, Drieux, absent, laissa place à Dimitri, un ange stagiaire qui, pour pardonner Drieux de son absence (il est parti voir Satatros car Baldéo s'est échappé des enfrers), le rend super puissant, fort, musclé, et avec un énorme chibre. Mais revenu sur Terre, Bello voit son frère Boing se faire tuer devant ses yeux par Baldéo. Il est accusé du crime étant donné qu'il était le seul capable de faire ça (car il est bleu !). Profitant de ses nouveaux pouvoirs, il décide de se lancer contre Baldéo pour laver son honneur et assouvir sa vengeance.
+Bello est un slime normal (par normal, je veux dire qui a plusieurs vies mais qui crève toujours comme un con). C'est le slime le plus faible de SlimeCity. Un jour, Drieux invoqua l'esprit de Bello et lui dit qu'il doit partir chercher un évadé des Enfers. Pour se faire pardonner, il le rend super puissant, fort, musclé, et avec un énorme chibre. Mais revenu sur Terre, Bello voit son frère Boing se faire tuer devant ses yeux par Baldéo. Il est accusé du crime étant donné qu'il était le seul capable de faire ça (car il est bleu !). Profitant de ses nouveaux pouvoirs, il décide de se lancer contre Baldéo pour laver son honneur et assouvir sa vengeance.
 
 
 
@@ -10,13 +10,13 @@ Roguelike en mode Hadès avec des graphismes 2D Pixel Art, un gameplay de zinzin
 
 
 
-Contrôles : 
+Contrôles :
 
-ZQSD : mouger
+ZQSD : se déplacer
 
 Clique gauche : Épée de glace
 
-Clique droit : Lance de glace
+Clique droit : Projectiles de glace
 
 E : Geler autour de soi
 
@@ -32,9 +32,65 @@ Ce jeu, ces personnages et ce lore sont soumis à des droits d'auteur, si tu veu
 
 
 
-Créateurs : 
+Créateurs:
 
--BelloLeSlime (moi) : code, musiques, bruitages
 
--Baldéos : graphismes de fou
+
+&nbsp;	Développement :
+
+&nbsp;		BelloLeSlime
+
+&nbsp;	Graphismes :
+
+&nbsp;		Baldéos
+
+&nbsp;		BelloLeSlime(juste le panneau)
+
+&nbsp;	Musique :
+
+&nbsp;		BelloLeSlime
+
+&nbsp;		Logger (inspiration : Look At The Sky (Soporific), Control (Control), Evil Devil (bootleg), provient du mod FNF "Vs. Catnap v2" crée par bucketofshrimp)
+
+&nbsp;	Sound Effect :
+
+&nbsp;		Freesound
+
+&nbsp;		Myinstants
+
+&nbsp;	Voix :
+
+&nbsp;		BelloLeSlime (Bello, Chef Duculte, Satatros)
+
+&nbsp;		Astralio (Astralio (tsé, le mec du début))
+
+&nbsp;		Le Reviendant (Drieux)
+
+&nbsp;		Draco (Narrateur)
+
+&nbsp;		Milo Soul (Réveil Man)
+
+&nbsp;	Soutien :
+
+&nbsp;		G-
+
+&nbsp;		Kiking
+
+&nbsp;		Le reviendant
+
+&nbsp;		Astralio
+
+&nbsp;		Wiroiboo
+
+&nbsp;		Draco
+
+&nbsp;		Milo Soul
+
+&nbsp;		Boing
+
+
+
+
+
+OH PUTAIN CE JEU EST UNE MASTERCLASS, BANGER INTERCONTINANTAL
 

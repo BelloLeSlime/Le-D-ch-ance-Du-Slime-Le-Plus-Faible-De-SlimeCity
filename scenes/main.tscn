@@ -80,6 +80,7 @@ expand_icon = true
 script = ExtResource("4_jyhfs")
 
 [node name="Boss" type="Button" parent="Menu"]
+visible = false
 offset_left = 1081.0
 offset_top = 593.0
 offset_right = 1126.0
