@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://uuy4trbyh632"]
+[gd_scene load_steps=11 format=3 uid="uid://uuy4trbyh632"]
 
 [ext_resource type="Script" uid="uid://b4abe7bvujhva" path="res://scripts/tank_enemy.gd" id="1_oyjof"]
 [ext_resource type="Texture2D" uid="uid://dyhaisxlr8x4t" path="res://assets/textures/tank.png" id="2_1jugj"]
+[ext_resource type="AudioStream" uid="uid://50g5j0780o4v" path="res://assets/sounds/break.mp3" id="3_p67f1"]
+[ext_resource type="AudioStream" uid="uid://dmy1ka0bg46re" path="res://assets/sounds/slime.mp3" id="4_dlxkk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ubg1q"]
 atlas = ExtResource("2_1jugj")
@@ -82,6 +84,13 @@ scale = Vector2(3.5789473, 3.578947)
 texture = ExtResource("2_1jugj")
 region_enabled = true
 region_rect = Rect2(67, 8, 19, 21)
+
+[node name="Break" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_p67f1")
+volume_db = 2.0
+
+[node name="Damage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_dlxkk")
 
 [connection signal="body_entered" from="Attack" to="." method="_on_attack_body_entered"]
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

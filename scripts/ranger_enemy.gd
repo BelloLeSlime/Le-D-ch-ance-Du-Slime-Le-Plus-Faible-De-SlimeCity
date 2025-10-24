@@ -35,6 +35,7 @@ func _physics_process(_delta):
 			else:
 				velocity = Vector2.ZERO
 				if can_attack and $Freeze.time_left == 0:
+					$Arrow.play()
 					can_attack = false
 					var arrow = arrow_preload.instantiate()
 					add_child(arrow)
@@ -53,12 +54,18 @@ func _on_attack_cooldown_timeout():
 
 func damage():
 	if can_be_damaged:
+		$Damage.play()
 		$DamageCooldown.start()
 		can_be_damaged = false
 		if protected:
 			protected = false
 			emit_signal("destroy")
 		else:
+			$CollisionShape2D.disabled = true
+			can_attack = false
+			visible = false
+			$AttackCooldown.stop()
+			await $Damage.finished
 			queue_free()
 
 func _on_damage_cooldown_timeout():

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvi663fhm7t8l"]
+[gd_scene load_steps=10 format=3 uid="uid://dvi663fhm7t8l"]
 
 [ext_resource type="Script" uid="uid://2vh3os4elj78" path="res://scripts/protector_enemy.gd" id="1_mu5ik"]
 [ext_resource type="Texture2D" uid="uid://cx0dced818yq4" path="res://assets/textures/protector.png" id="2_w3q1s"]
+[ext_resource type="AudioStream" uid="uid://5glkty1fvi85" path="res://assets/sounds/glass.mp3" id="3_esjt8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_esjt8"]
 atlas = ExtResource("2_w3q1s")
@@ -74,6 +75,9 @@ visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
 shape = SubResource("CircleShape2D_uvu0f")
+
+[node name="Damage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_esjt8")
 
 [connection signal="timeout" from="ProtectCooldown" to="." method="_on_protect_cooldown_timeout"]
 [connection signal="timeout" from="DamageCooldown" to="." method="_on_damage_cooldown_timeout"]

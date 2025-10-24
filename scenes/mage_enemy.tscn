@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://d1wepw4rdkeho"]
+[gd_scene load_steps=11 format=3 uid="uid://d1wepw4rdkeho"]
 
 [ext_resource type="Script" uid="uid://b6dbm7035cbc8" path="res://scripts/mage_enemy.gd" id="1_kuai2"]
 [ext_resource type="Texture2D" uid="uid://ckvl2cm6s6ahf" path="res://assets/textures/mage.png" id="2_xvlmm"]
+[ext_resource type="AudioStream" uid="uid://dilrynqugjsvk" path="res://assets/sounds/fireball.wav" id="3_36n2d"]
+[ext_resource type="AudioStream" uid="uid://dmy1ka0bg46re" path="res://assets/sounds/slime.mp3" id="4_rlifj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bx1yj"]
 size = Vector2(80, 80)
@@ -74,6 +76,13 @@ position = Vector2(218.00002, 4.7683716e-07)
 rotation = 6.2831764
 scale = Vector2(6, 6)
 texture = SubResource("AtlasTexture_rlifj")
+
+[node name="Fireball" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_36n2d")
+volume_db = 5.0
+
+[node name="Damage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_rlifj")
 
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="DamageCooldown" to="." method="_on_damage_cooldown_timeout"]

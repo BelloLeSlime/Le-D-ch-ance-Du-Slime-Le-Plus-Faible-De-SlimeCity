@@ -42,6 +42,7 @@ func _physics_process(_delta):
 
 func damage():
 	if can_be_damaged:
+		$Damage.play()
 		$DamageCooldown.start()
 		can_be_damaged = false
 		if protected:
@@ -50,6 +51,11 @@ func damage():
 		else:
 			if protecting != null:
 				protecting.protected = false
+			$CollisionShape2D.disabled = true
+			visible = false
+			can_protect = false
+			$ProtectCooldown.stop()
+			await $Damage.finished
 			queue_free()
  
 func _on_destroy():

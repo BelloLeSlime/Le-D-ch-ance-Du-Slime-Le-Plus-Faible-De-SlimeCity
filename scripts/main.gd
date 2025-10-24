@@ -23,7 +23,6 @@ func _on_play_pressed():
 	bello = get_node("World/Bello")
 	bello.connect("dead", Callable(self, "_on_bello_dead"))
 	Globals.playing = true
-	
 
 func _on_quit_pressed():
 	await $Fade.fade_in()
@@ -69,3 +68,18 @@ func _on_bello_dead():
 	$Music.stream = load("res://assets/music/LookAtTheSky.mp3")
 	$Music.play()
 	
+func _on_incipit_pressed() -> void:
+	$Music.stop()
+	await $Fade.fade_in()
+	$Timer.start()
+	await $Timer.timeout
+	$Fade.fade_out(0)
+	$Menu/IncipitVideo.visible = true
+	$Menu/IncipitVideo/VideoStreamPlayer.play()
+	await $Menu/IncipitVideo/VideoStreamPlayer.finished
+	$Timer.start()
+	await $Timer.timeout
+	$Fade.fade_in(0)
+	$Menu/IncipitVideo.visible = false
+	$Music.play()
+	await $Fade.fade_out()

@@ -51,13 +51,22 @@ func damage():
 		$DamageCooldown.start()
 		can_be_damaged = false
 		if protected:
+			$Damage.play()
 			protected = false
 			emit_signal("destroy")
 		else:
 			health -= 1
 			$Shield.visible = false
 			if health <= 0:
+				$Damage.play()
+				$CollisionShape2D.disabled = true
+				visible = false
+				can_attack = false
+				$AttackCooldown.stop()
+				await $ Damage.finished
 				queue_free()
+			else:
+				$Break.play()
 
 func _on_damage_cooldown_timeout():
 	can_be_damaged = true

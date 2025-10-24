@@ -23,6 +23,7 @@ func _physics_process(_delta):
 				can_attack = false
 				body.health -= 10
 				$AttackCooldown.start()
+				$SwordSound.play()
 		
 		var dir = (player.global_position - global_position).normalized()
 		
@@ -47,12 +48,18 @@ func _on_attack_cooldown_timeout():
 
 func damage():
 	if can_be_damaged:
+		$Damage.play()
 		$DamageCooldown.start()
 		can_be_damaged = false
 		if protected:
 			protected = false
 			emit_signal("destroy")
 		else:
+			visible = false
+			can_attack = false
+			$AttackCooldown.stop()
+			$CollisionShape2D.disabled = true
+			await $Damage.finished
 			queue_free()
 
 func _on_damage_cooldown_timeout():

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://csfd4opfprela"
+path="res://.godot/imported/nn encore toi sérieux.wav-77c3d80469e3efaa5d3100a082c48725.sample"
+
+[deps]
+
+source_file="res://assets/incipit/nn encore toi sérieux.wav"
+dest_files=["res://.godot/imported/nn encore toi sérieux.wav-77c3d80469e3efaa5d3100a082c48725.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

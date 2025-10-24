@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dd3xwghn3t50n"]
+[gd_scene load_steps=11 format=3 uid="uid://dd3xwghn3t50n"]
 
 [ext_resource type="Script" uid="uid://bm0sixaw6g3mw" path="res://scripts/ranger_enemy.gd" id="1_dmll5"]
 [ext_resource type="Texture2D" uid="uid://dfrmrkguwfycs" path="res://assets/textures/ranger.png" id="2_cdd42"]
 [ext_resource type="Texture2D" uid="uid://brwxpdunr4yel" path="res://assets/textures/bow.png" id="3_wiavg"]
+[ext_resource type="AudioStream" uid="uid://unrrsgopljht" path="res://assets/sounds/arrow.ogg" id="4_11xy5"]
+[ext_resource type="AudioStream" uid="uid://dmy1ka0bg46re" path="res://assets/sounds/slime.mp3" id="5_yn4w1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wiavg"]
 atlas = ExtResource("2_cdd42")
@@ -72,6 +74,13 @@ texture_filter = 1
 position = Vector2(102.00001, -4.5474735e-13)
 scale = Vector2(7.0769258, 7.0769234)
 texture = ExtResource("3_wiavg")
+
+[node name="Arrow" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_11xy5")
+volume_db = 10.0
+
+[node name="Damage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_yn4w1")
 
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="DamageCooldown" to="." method="_on_damage_cooldown_timeout"]

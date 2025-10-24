@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://cl2nlrm516gop"]
+
+[ext_resource type="Texture2D" uid="uid://n5tytd5spmgc" path="res://assets/textures/astralio.png" id="1_5mkhn"]
+[ext_resource type="Script" uid="uid://druniepfywhq3" path="res://scripts/astralio.gd" id="1_veo85"]
+[ext_resource type="AudioStream" uid="uid://cyv718xd6t482" path="res://assets/sounds/astralio.wav" id="3_dvrmw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_veo85"]
+atlas = ExtResource("1_5mkhn")
+region = Rect2(0, 0, 21, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvrmw"]
+atlas = ExtResource("1_5mkhn")
+region = Rect2(0, 16, 21, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f34ud"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_veo85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvrmw")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wgcow"]
+size = Vector2(18, 10)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_veo85"]
+radius = 62.008064
+
+[node name="Astralio" type="StaticBody2D"]
+z_index = 3
+collision_layer = 64
+script = ExtResource("1_veo85")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_f34ud")
+animation = &"walk"
+frame_progress = 0.9444682
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_wgcow")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_veo85")
+
+[node name="Speak" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_dvrmw")
+volume_db = 10.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

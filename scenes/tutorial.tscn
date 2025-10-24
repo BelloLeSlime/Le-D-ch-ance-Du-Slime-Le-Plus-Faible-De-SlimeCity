@@ -1,0 +1,133 @@
+[gd_scene load_steps=17 format=3 uid="uid://bavrv8rhqqy88"]
+
+[ext_resource type="Texture2D" uid="uid://b7sqthbgkkxgs" path="res://assets/textures/gui.png" id="1_8ho6b"]
+[ext_resource type="Script" uid="uid://dxorpykc1rd7w" path="res://scenes/tutorial.gd" id="1_ph3nu"]
+[ext_resource type="Texture2D" uid="uid://caa747ycb6fxo" path="res://assets/textures/tuto.png" id="2_ph3nu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kmhl"]
+atlas = ExtResource("1_8ho6b")
+region = Rect2(0, 62, 18, 18)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cq4me"]
+texture = SubResource("AtlasTexture_4kmhl")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yjpi"]
+atlas = ExtResource("2_ph3nu")
+region = Rect2(0, 48, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbqnl"]
+atlas = ExtResource("2_ph3nu")
+region = Rect2(32, 48, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckvwl"]
+atlas = ExtResource("2_ph3nu")
+region = Rect2(0, 32, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlqja"]
+atlas = ExtResource("2_ph3nu")
+region = Rect2(32, 32, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0epgs"]
+atlas = ExtResource("2_ph3nu")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2equ"]
+atlas = ExtResource("2_ph3nu")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbcdj"]
+atlas = ExtResource("2_ph3nu")
+region = Rect2(0, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ej4tf"]
+atlas = ExtResource("2_ph3nu")
+region = Rect2(32, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hilk"]
+atlas = ExtResource("2_ph3nu")
+region = Rect2(0, 64, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wr8iv"]
+atlas = ExtResource("2_ph3nu")
+region = Rect2(32, 64, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e13mp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6yjpi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbqnl")
+}],
+"loop": true,
+"name": &"a",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckvwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlqja")
+}],
+"loop": true,
+"name": &"e",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0epgs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2equ")
+}],
+"loop": true,
+"name": &"left",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbcdj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ej4tf")
+}],
+"loop": true,
+"name": &"right",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hilk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wr8iv")
+}],
+"loop": true,
+"name": &"shift",
+"speed": 2.0
+}]
+
+[node name="Tutorial" type="CanvasLayer"]
+script = ExtResource("1_ph3nu")
+
+[node name="Panel" type="Panel" parent="."]
+texture_filter = 1
+offset_left = 1188.0
+offset_top = 220.99998
+offset_right = 1253.4
+offset_bottom = 251.79999
+scale = Vector2(5, 5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_cq4me")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Panel"]
+texture_filter = 1
+position = Vector2(23, 15.200005)
+scale = Vector2(0.79999995, 0.79999995)
+sprite_frames = SubResource("SpriteFrames_e13mp")
+animation = &"a"

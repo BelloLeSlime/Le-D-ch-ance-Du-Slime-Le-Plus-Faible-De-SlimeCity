@@ -165,7 +165,7 @@ func damage():
 		can_be_damaged = false
 		$DamageCooldown.start()
 		health -= 1
-		if health <= 0:
+		if health <= 0 and phase == 1:
 			phase = 2
 			health = 0
 			$RestTime.stop()
@@ -196,6 +196,8 @@ func damage():
 			attack = ""
 			health = 100
 			can_be_damaged = true
+		elif health <= 0 and phase == 2:
+			pass #fin finale
 
 func jump_to(target_position: Vector2):
 	

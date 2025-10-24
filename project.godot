@@ -87,6 +87,7 @@ echap={
 2d_physics/layer_4="PlayerAttack"
 2d_physics/layer_5="Map"
 2d_physics/layer_6="Tree"
+2d_physics/layer_7="Astralio"
 
 [rendering]
 
